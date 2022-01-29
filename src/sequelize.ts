@@ -10,6 +10,7 @@ export default function (app: Application): void {
       freezeTableName: true
     }
   });
+
   const oldSetup = app.setup;
 
   app.set('sequelizeClient', sequelize);

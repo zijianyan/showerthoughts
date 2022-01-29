@@ -27,7 +27,7 @@ export default function (app: Application): void {
     });
 
     // Sync to the database
-    app.set('sequelizeSync', sequelize.sync());
+    app.set('sequelizeSync', sequelize.sync({ force: true }));
 
     return result;
   };

@@ -20,7 +20,6 @@ export default function (app: Application): typeof Model {
     },
     author: {
       type: DataTypes.STRING,
-      allowNull: false
     }
   }, {
     hooks: {

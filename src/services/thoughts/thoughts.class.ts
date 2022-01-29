@@ -6,4 +6,9 @@ export class Thoughts extends Service {
   constructor(options: Partial<SequelizeServiceOptions>, app: Application) {
     super(options);
   }
+  
+  create(data: object, params: object) {
+    console.log('creating with data:', data)
+    return super.create(data)
+  }
 }

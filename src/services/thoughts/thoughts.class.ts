@@ -8,7 +8,7 @@ export class Thoughts extends Service {
   }
   
   create(data: object, params: object) {
-    console.log('creating with data:', data)
+    // override custom service method here
     return super.create(data)
   }
 }

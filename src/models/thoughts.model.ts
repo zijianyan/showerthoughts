@@ -10,6 +10,17 @@ export default function (app: Application): typeof Model {
     text: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    published: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    twitterId: {
+      type: DataTypes.STRING
+    },
+    author: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
     hooks: {

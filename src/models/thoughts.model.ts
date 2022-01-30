@@ -16,7 +16,12 @@ export default function (app: Application): typeof Model {
       defaultValue: false
     },
     tweetId: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      defaultValue: null
+    },
+    url: {
+      type: DataTypes.STRING,
+      defaultValue: null
     },
     author: {
       type: DataTypes.STRING

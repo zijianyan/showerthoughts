@@ -11,7 +11,7 @@ export default function (app: Application): typeof Model {
       type: DataTypes.STRING,
       allowNull: false
     },
-    published: {
+    publish: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },

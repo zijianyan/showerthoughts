@@ -11,16 +11,21 @@ export default function (app: Application): typeof Model {
       type: DataTypes.STRING,
       allowNull: false
     },
-    published: {
+    publish: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    twitterId: {
-      type: DataTypes.STRING
+    tweetId: {
+      type: DataTypes.STRING,
+      defaultValue: null
+    },
+    url: {
+      type: DataTypes.STRING,
+      defaultValue: null
     },
     author: {
-      type: DataTypes.STRING,
-    }
+      type: DataTypes.STRING
+    },
   }, {
     hooks: {
       beforeCount(options: any): HookReturn {

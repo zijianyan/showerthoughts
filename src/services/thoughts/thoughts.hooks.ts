@@ -1,4 +1,5 @@
 import { HooksObject } from '@feathersjs/feathers';
+import { HookContext } from '@feathersjs/feathers';
 
 const { TwitterApi } = require('twitter-api-v2');
 
@@ -11,7 +12,7 @@ const twitterClient = new TwitterApi({
 
 const rwClient = twitterClient.readWrite
 
-const publish = async (context:any) => {
+const publish = async (context:HookContext) => {
   const { data } = context
   if (data.publish === true) {
     const tweet = await rwClient.v1.tweet(`${data.text} ${Date.now()}`)

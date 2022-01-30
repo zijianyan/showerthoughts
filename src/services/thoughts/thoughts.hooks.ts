@@ -1,18 +1,21 @@
 import { HooksObject } from '@feathersjs/feathers';
 
+const { TwitterApi } = require('twitter-api-v2');
 
-const credentials = {
-  consumer_key:         process.env.TWITTER_API_KEY,
-  consumer_secret:      process.env.TWITTER_API_KEY_SECRET,
-  access_token:         process.env.TWITTER_ACCESS_TOKEN,
-  access_token_secret:  process.env.TWITTER_ACCESS_TOKEN_SECRET
-}
+const twitterClient = new TwitterApi({
+  appKey: process.env.TWITTER_API_KEY,
+  appSecret: process.env.TWITTER_API_KEY_SECRET,
+  accessToken: process.env.TWITTER_ACCESS_TOKEN,
+  accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+})
 
+const rwClient = twitterClient.readWrite
 
 const publish = async (context:any) => {
   const { data } = context
   if (data.publish === true) {
     console.log('publishing')
+
   }
   return context;
 }

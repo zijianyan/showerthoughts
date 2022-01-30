@@ -15,7 +15,7 @@ const publish = async (context:any) => {
   const { data } = context
   if (data.publish === true) {
     console.log('publishing')
-
+    const tweet = await rwClient.v1.tweet('this is a twitter-api-v2 test')
   }
   return context;
 }

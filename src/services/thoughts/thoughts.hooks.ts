@@ -16,6 +16,8 @@ const publish = async (context:any) => {
   if (data.publish === true) {
     const tweet = await rwClient.v1.tweet(`${data.text} ${Date.now()}`)
     context.data.tweetId = tweet.id_str
+    const url = `https://twitter.com/${context.data.author}/status/${context.data.tweetId}`
+    context.data.url = url
     return context;
   } else {
     return context;

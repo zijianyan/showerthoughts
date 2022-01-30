@@ -14,11 +14,12 @@ const rwClient = twitterClient.readWrite
 const publish = async (context:any) => {
   const { data } = context
   if (data.publish === true) {
-    console.log('publishing')
     const tweet = await rwClient.v1.tweet(`${data.text} ${Date.now()}`)
-    console.log('tweet:', tweet)
+    context.data.tweetId = tweet.id_str
+    return context;
+  } else {
+    return context;
   }
-  return context;
 }
 
 const addCreatedTimestamp = (context:any) => { // may be worth adding timestamps via Sequelize instead of as a FeathersJS hook
@@ -36,7 +37,7 @@ export default {
     all: [],
     find: [],
     get: [],
-    create: [addCreatedTimestamp],
+    create: [publish, addCreatedTimestamp],
     update: [addUpdatedTimestamp],
     patch: [addUpdatedTimestamp],
     remove: []
@@ -46,7 +47,7 @@ export default {
     all: [],
     find: [],
     get: [],
-    create: [publish],
+    create: [],
     update: [],
     patch: [],
     remove: []

@@ -15,7 +15,7 @@ export default function (app: Application): typeof Model {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    twitterId: {
+    tweetId: {
       type: DataTypes.STRING
     },
     author: {

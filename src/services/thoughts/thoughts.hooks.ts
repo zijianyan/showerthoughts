@@ -1,4 +1,5 @@
 import { HooksObject } from '@feathersjs/feathers';
+import { HookContext } from '@feathersjs/feathers';
 
 const { TwitterApi } = require('twitter-api-v2');
 
@@ -11,7 +12,7 @@ const twitterClient = new TwitterApi({
 
 const rwClient = twitterClient.readWrite
 
-const publish = async (context:any) => {
+const publish = async (context:HookContext) => {
   const { data } = context
   if (data.publish === true) {
     const tweet = await rwClient.v1.tweet(`${data.text} ${Date.now()}`)
@@ -24,12 +25,12 @@ const publish = async (context:any) => {
   }
 }
 
-const addCreatedTimestamp = (context:any) => { // may be worth adding timestamps via Sequelize instead of as a FeathersJS hook
+const addCreatedTimestamp = (context:HookContext) => {
   context.data.createdAt = Date.now()
   return context
 }
 
-const addUpdatedTimestamp = (context:any) => { // may be worth adding timestamps via Sequelize instead of as a FeathersJS hook
+const addUpdatedTimestamp = (context:HookContext) => {
   context.data.updatedAt = Date.now()
   return context
 }

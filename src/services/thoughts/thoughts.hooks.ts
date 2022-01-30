@@ -25,12 +25,12 @@ const publish = async (context:HookContext) => {
   }
 }
 
-const addCreatedTimestamp = (context:any) => { // may be worth adding timestamps via Sequelize instead of as a FeathersJS hook
+const addCreatedTimestamp = (context:HookContext) => {
   context.data.createdAt = Date.now()
   return context
 }
 
-const addUpdatedTimestamp = (context:any) => { // may be worth adding timestamps via Sequelize instead of as a FeathersJS hook
+const addUpdatedTimestamp = (context:HookContext) => {
   context.data.updatedAt = Date.now()
   return context
 }

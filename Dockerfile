@@ -1,8 +1,10 @@
 FROM node
 
-RUN npm install
+WORKDIR /app
 
-COPY . .
+COPY . /app
+
+RUN npm install
 
 EXPOSE 80
 

@@ -9,6 +9,6 @@ export class Thoughts extends Service {
   
   create(data: object, params: object) {
     // override custom service method here
-    return super.create(data)
+    return super.create(data);
   }
 }

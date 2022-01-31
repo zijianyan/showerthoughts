@@ -3,6 +3,8 @@ import { HookContext } from '@feathersjs/feathers';
 
 const { TwitterApi } = require('twitter-api-v2');
 
+console.log('process.env.TWITTER_API_KEY:', process.env.TWITTER_API_KEY);
+
 const twitterClient = new TwitterApi({
   appKey: process.env.TWITTER_API_KEY,
   appSecret: process.env.TWITTER_API_KEY_SECRET,

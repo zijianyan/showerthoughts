@@ -25,6 +25,20 @@ const publish = async (context:HookContext) => {
   }
 }
 
+const unpublish = async (context:HookContext) => {
+  try {
+    if (context.result.tweetId !== null) {
+      const deletedTweet = await rwClient.v1.deleteTweet(context.result.tweetId)
+      return context
+    } else {
+      return context
+    } 
+  }
+  catch(error) {
+    console.log('unpublish error:', error)
+  }
+}
+
 const addCreatedTimestamp = (context:HookContext) => {
   context.data.createdAt = Date.now()
   return context
@@ -53,7 +67,7 @@ export default {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [unpublish]
   },
 
   error: {

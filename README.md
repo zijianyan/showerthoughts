@@ -4,9 +4,9 @@
 
 ## About
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+This project saves messages to a database while allowing the option to publish them to Twitter.
 
-It saves messages to a database while allowing the option to publish them to Twitter.
+It uses [Feathers](http://feathersjs.com).
 
 ## Getting Started
 

@@ -5,5 +5,8 @@ module.exports = {
     'ts-jest': {
       diagnostics: false
     }
-  }
+  },
+  setupFiles: [
+    'dotenv/config'
+  ],
 };
